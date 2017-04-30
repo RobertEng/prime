@@ -31,6 +31,7 @@ def sum_primes(n):
     """Calculates sum of all primes below given integer n"""
     return sum([x for x in xrange(2, n) if isprime(x)])
  
+
 # tuple of all parallel python servers to connect with, or "*", for
 # autodiscovery
 ppservers = ("*",)  # the comma is important!
@@ -46,8 +47,10 @@ start_time = time.time()
 # inputs = (100000, 100100, 100200, 100300, 100400, 100500, 100600, 100700)
 inputs = "171 40 133 169 75 8 73 187 195 48 89 151 54 63 90 33 68 81 118 24 159 7 146 15 4 156 31 134 35 109 62 158 95 143 12 74 77 17 126 139 128 101 39 100 14 172 167 49 175 141 145 19 130 170 148 179 165 157 83 161 153 121 105 46 85 164"
 inputs = [int(i) + 100000 for i in inputs.split(' ')]
-# inputs = tuple(inputs)
 
+
+# The following code is an alternative way to start jobs. It doesn't work rn
+############
 # jobs = []
  
 # jobs.append(job_server.submit(sum_primes, (input,), (isprime,), ("math",)))
@@ -62,8 +65,10 @@ inputs = [int(i) + 100000 for i in inputs.split(' ')]
 #     print result
 # else:
 #     print "Sorry, couldn't find anything."
+############
 
 
+# Format of job_server.submit()
 '''
 job_server.submit(
     primary_function, 
